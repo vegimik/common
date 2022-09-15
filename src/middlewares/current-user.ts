@@ -1,5 +1,6 @@
-import { Request, Response, NextFunction } from 'express';
-import jwt from 'jsonwebtoken';
+import { Request, Response, NextFunction } from "express";
+import jwt from "jsonwebtoken";
+import parseJwtFromCookies from "../helpers/parseJwtFromCookies";
 
 interface UserPayload {
   id: string;
@@ -24,8 +25,11 @@ export const currentUser = (
   }
 
   try {
+    var jwtParsed = parseJwtFromCookies(req);
+    console.log('currentUserMiddleware: ',jwtParsed);
+
     const payload = jwt.verify(
-      req.session.jwt,
+      jwtParsed, // req.session.jwt,
       process.env.JWT_KEY!
     ) as UserPayload;
     req.currentUser = payload;
