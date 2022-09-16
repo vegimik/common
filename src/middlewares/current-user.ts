@@ -20,13 +20,14 @@ export const currentUser = (
   res: Response,
   next: NextFunction
 ) => {
-  if (!req.session?.jwt) {
+  var jwtParsed = parseJwtFromCookies(req);
+  if (!jwtParsed) {
+    //!req.session?.jwt) {
     return next();
   }
 
   try {
-    var jwtParsed = parseJwtFromCookies(req);
-    console.log('currentUserMiddleware: ',jwtParsed);
+    console.log("currentUserMiddleware: ", jwtParsed);
 
     const payload = jwt.verify(
       jwtParsed, // req.session.jwt,
