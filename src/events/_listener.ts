@@ -4,8 +4,8 @@ import Event from "./_event";
 export default abstract class Listener<T extends Event> {
   abstract subject: T["subject"];
   abstract queueGroupName: string;
-  abstract onMessage(data: T['data'], msg: Message): void;
-  private client: Stan;
+  abstract onMessage(data: T["data"], msg: Message): void;
+  protected client: Stan;
   protected ackWait = 5 * 1000;
 
   constructor(client: Stan) {

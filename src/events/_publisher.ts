@@ -4,7 +4,7 @@ import Event from "./_event";
 export default abstract class Publisher<T extends Event> {
   abstract subject: T["subject"];
   //   abstract data:T['data'];
-  private client: Stan;
+  protected client: Stan;
   protected ackWait = 5 * 1000;
 
   constructor(client: Stan) {
@@ -17,7 +17,7 @@ export default abstract class Publisher<T extends Event> {
         if (err) {
           return reject(err);
         }
-        console.log("Event published; ", this.subject );
+        console.log("Event published; ", this.subject);
         resolve();
       });
     });

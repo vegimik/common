@@ -8,5 +8,6 @@ export default interface TicketCreatedEvent {
     price: number;
     userId: string;
     version: number;
+    orderId?: string;
   };
 }
