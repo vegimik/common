@@ -1,5 +1,5 @@
 import { Message, Stan } from "node-nats-streaming";
-import Event from "./_event";
+import Event from "../dto/_event";
 
 export default abstract class Listener<T extends Event> {
   abstract subject: T["subject"];
