@@ -1,5 +1,5 @@
-import { OrderStatus } from "../../../types/order-status";
-import { Subjects } from "../../enum/_subject";
+import { OrderStatus } from "../types/order-status";
+import { Subjects } from "./_subject";
 
 export default interface OrderCancelledEvent extends Event {
   subject: Subjects.OrderCancelled;

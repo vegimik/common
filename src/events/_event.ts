@@ -1,4 +1,5 @@
-import { Subjects } from "../enum/_subject";
+import { Subjects } from "./_subject";
+
 
 export default interface Event {
   subject: Subjects;

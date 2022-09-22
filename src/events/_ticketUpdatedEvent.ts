@@ -1,4 +1,4 @@
-import { Subjects } from "../../enum/_subject";
+import { Subjects } from "./_subject";
 
 export default interface TicketUpdatedEvent {
   subject: Subjects.TickerUpdated;

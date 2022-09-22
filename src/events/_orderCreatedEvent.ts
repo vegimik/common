@@ -1,5 +1,6 @@
-import { OrderStatus } from "../../../types/order-status";
-import { Subjects } from "../../enum/_subject";
+import { OrderStatus } from "../types/order-status";
+import { Subjects } from "./_subject";
+
 
 export default interface OrderCreatedEvent extends Event {
   subject: Subjects.OrderCreated;
